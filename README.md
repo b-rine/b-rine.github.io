@@ -4,7 +4,7 @@ A minimal, interactive portfolio website inspired by modern design principles, f
 
 ## Features
 
-- **Minimal Design**: Clean, typography-focused layout inspired by [Ron Kiehn's portfolio](https://ronkiehn.dev/)
+- **Minimal Design**: Clean, typography-focused layout 
 - **Interactive 3D Element**: ThreeJS-powered cube that responds to mouse movement
 - **GitHub Pages Ready**: Optimized for static hosting with automated deployment
 - **Responsive**: Works perfectly on desktop, tablet, and mobile devices
