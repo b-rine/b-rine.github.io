@@ -23,10 +23,10 @@ function initThreeJS() {
     // Create cube geometry and material
     const geometry = new THREE.BoxGeometry(2, 2, 2);
     const material = new THREE.MeshBasicMaterial({ 
-        color: 0xffffff,
+        color: 0x71717a,
         wireframe: true,
         transparent: true,
-        opacity: 0.8
+        opacity: 0.9
     });
     
     cube = new THREE.Mesh(geometry, material);
@@ -73,7 +73,7 @@ function animate() {
     
     // Color shifting effect
     const time = Date.now() * 0.001;
-    cube.material.color.setHSL((time * 0.1) % 1, 0.7, 0.8);
+    cube.material.color.setHSL((time * 0.1) % 1, 0.3, 0.6);
     
     renderer.render(scene, camera);
 }
