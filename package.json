@@ -1,0 +1,42 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "A minimal portfolio website with ThreeJS 3D cube interaction, optimized for GitHub Pages",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "echo 'Deploy via GitHub Actions'"
+  },
+  "keywords": [
+    "portfolio",
+    "threejs",
+    "3d",
+    "minimal",
+    "web",
+    "interactive",
+    "github-pages",
+    "static-site"
+  ],
+  "author": "Brian",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "three": "^0.128.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b-rine/b-rine.github.io.git"
+  },
+  "homepage": "https://b-rine.github.io",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
