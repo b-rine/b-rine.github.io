@@ -63,13 +63,12 @@ body {
 
 /* Main content */
 .content {
-    padding: 2rem 0;
+    padding: 0;
 }
 
 /* Section styles */
 .section {
-    margin-bottom: 4rem;
-    padding-bottom: 2rem;
+    padding: 3rem 0;
 }
 
 .section:not(:last-child) {
@@ -115,6 +114,39 @@ body {
 
 .contact-separator {
     color: #a1a1aa;
+}
+
+/* Company link styling */
+.company-link {
+    color: #a855f7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.company-link:hover {
+    color: #9333ea;
+}
+
+/* School name styling */
+.school-name {
+    color: #bf5700;
+    font-weight: 500;
+}
+
+/* Tech interest styling */
+.tech-distributed {
+    color: #06b6d4; /* Cyan - represents network/cloud connectivity */
+    font-weight: 500;
+}
+
+.tech-parallel {
+    color: #76b900; /* NVIDIA green - GPU/parallel processing */
+    font-weight: 500;
+}
+
+.tech-embedded {
+    color: #cf1818; /* Red - represents hardware/circuits */
+    font-weight: 500;
 }
 
 /* Tech stack section */
@@ -247,11 +279,11 @@ body {
     }
     
     .content {
-        padding: 1.5rem 0;
+        padding: 0;
     }
     
     .section {
-        margin-bottom: 3rem;
+        padding: 2rem 0;
     }
     
     .tech-grid {
