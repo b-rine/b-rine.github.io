@@ -27,6 +27,7 @@ body {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #27272a;
+    padding: 2rem 0;
 }
 
 .hero-content {
@@ -35,15 +36,15 @@ body {
 }
 
 .name {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 400;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     color: #ffffff;
     letter-spacing: -0.02em;
 }
 
 .tagline {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: #a1a1aa;
     font-weight: 400;
     margin: 0;
@@ -53,16 +54,16 @@ body {
 #threejs-container {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 2rem;
     transform: translateY(-50%);
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 320px;
     z-index: 10;
 }
 
 /* Main content */
 .content {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 /* Section styles */
@@ -219,7 +220,7 @@ body {
         flex-direction: column;
         text-align: center;
         padding: 2rem 0;
-        min-height: auto;
+        min-height: 100vh;
     }
     
     .hero-content {
@@ -228,7 +229,11 @@ body {
     }
     
     .name {
-        font-size: 2rem;
+        font-size: 2.8rem;
+    }
+    
+    .tagline {
+        font-size: 1.3rem;
     }
     
     #threejs-container {
@@ -236,13 +241,13 @@ body {
         top: auto;
         right: auto;
         transform: none;
-        width: 200px;
-        height: 200px;
+        width: 280px;
+        height: 280px;
         margin: 0 auto;
     }
     
     .content {
-        padding: 3rem 0;
+        padding: 1.5rem 0;
     }
     
     .section {
@@ -266,16 +271,16 @@ body {
     }
     
     .name {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
     
     .tagline {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     
     #threejs-container {
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
     }
     
     .section h2 {
