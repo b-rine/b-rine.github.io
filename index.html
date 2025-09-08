@@ -20,10 +20,10 @@
                     colors: {
                         'company': '#a855f7',
                         'company-hover': '#9333ea',
-                        'school': '#bf5700',
+                        'school': '#e0800D',
                         'tech-distributed': '#06b6d4',
                         'tech-parallel': '#76b900',
-                        'tech-embedded': '#cf1818'
+                        'tech-embedded': '#e0535B'
                     }
                 }
             }
@@ -38,72 +38,101 @@
 
 <body class="font-inter leading-relaxed text-zinc-300 bg-neutral-950">
     <div class="max-w-4xl mx-auto px-8">
-        <header class="relative min-h-screen flex items-center justify-between border-b border-zinc-800 py-8">
+        <header
+            class="relative min-h-screen flex items-center justify-between border-b border-zinc-800 py-8">
             <div class="flex-1 max-w-lg">
-                <h1 class="text-4xl md:text-6xl font-normal mb-6 text-white tracking-tight">brian nguyen</h1>
-                <p class="text-lg md:text-xl text-zinc-400 font-normal">junior software developer</p>
+                <h1
+                    class="text-4xl md:text-6xl font-normal mb-6 text-white tracking-tight">
+                    brian nguyen</h1>
+                <p class="text-lg md:text-xl text-zinc-400 font-normal">
+                    software developer</p>
             </div>
-            <div id="threejs-container" class="absolute top-1/2 right-4 transform -translate-y-1/2 w-96 h-96 z-10 md:block hidden lg:w-96 lg:h-96 md:w-80 md:h-80"></div>
+            <div id="threejs-container"
+                class="absolute top-1/2 right-4 transform -translate-y-1/2 w-96 h-96 z-10 md:block hidden lg:w-96 lg:h-96 md:w-80 md:h-80">
+            </div>
         </header>
 
         <main>
             <section id="about" class="py-12 border-b border-zinc-800">
-                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">about me</h2>
-                <p class="text-base leading-7 text-zinc-400 mb-4">currently a software engineer intern at <a
+                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
+                    about me</h2>
+                <p class="text-base leading-7 text-zinc-400 mb-4">currently a
+                    software engineer intern at <a
                         href="https://www.modernintelligence.ai/"
-                        target="_blank" class="text-company hover:text-company-hover transition-colors duration-200">modern
+                        target="_blank"
+                        class="text-company hover:text-company-hover no-underline hover:underline transition-all duration-200">modern
                         intelligence</a>.</p>
-                <p class="text-base leading-7 text-zinc-400 mb-4">graduated with a bs in cs & minor in applied stats from <span
+                <p class="text-base leading-7 text-zinc-400 mb-4">graduated with
+                    a bs in cs & a minor in applied stats from <span
                         class="text-school font-medium">ut austin</span>.</p>
-                <p class="text-base leading-7 text-zinc-400">interested in learning more about <span class="text-tech-distributed font-medium">distributed systems</span>, <span class="text-tech-parallel font-medium">parallel computing</span>,
-                    and <span class="text-tech-embedded font-medium">embedded development</span>.</p>
+                <p class="text-base leading-7 text-zinc-400">interested in
+                    learning more about <span
+                        class="text-tech-distributed font-medium">distributed
+                        systems</span>, <span
+                        class="text-tech-parallel font-medium">parallel
+                        computing</span>,
+                    and <span class="text-tech-embedded font-medium">embedded
+                        systems</span>.</p>
             </section>
 
             <section id="contact" class="py-12 border-b border-zinc-800">
-                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">contact me</h2>
+                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
+                    contact me</h2>
                 <div class="text-base leading-7 text-zinc-400">
-                    <a href="mailto:brian@example.com"
-                        class="text-white underline decoration-zinc-600 hover:decoration-white transition-colors duration-200">brian@example.com</a>
+                    <a href="mailto:nguyenbrianatx@gmail.com"
+                        class="text-white underline decoration-zinc-600 hover:decoration-white transition-colors duration-200">nguyenbrianatx@gmail.com</a>
                     <span class="text-zinc-400"> or find me on </span>
                     <a href="https://github.com/b-rine" target="_blank"
-                        class="text-white underline decoration-zinc-600 hover:decoration-white transition-colors duration-200">github</a>,
-                    <a href="https://linkedin.com/in/brian" target="_blank"
-                        class="text-white underline decoration-zinc-600 hover:decoration-white transition-colors duration-200">linkedin</a>, and
-                    <a href="https://twitter.com/brian" target="_blank"
-                        class="text-white underline decoration-zinc-600 hover:decoration-white transition-colors duration-200">twitter</a>.
+                        class="text-gray-300 hover:text-white no-underline hover:underline transition-all duration-200">github</a>
+                    and
+                    <a href="https://www.linkedin.com/in/brnguyen03/"
+                        target="_blank"
+                        class="text-blue-500 hover:text-blue-400 no-underline hover:underline transition-all duration-200">linkedin</a>.
                 </div>
             </section>
 
             <section id="tech-stack" class="py-12 border-b border-zinc-800">
-                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">tech stack</h2>
-                <p class="text-base leading-7 text-zinc-400 mb-6">i'm best at <strong class="text-white">javascript/typescript</strong>,
-                    <strong class="text-white">python</strong>, and <strong class="text-white">react</strong> but i'm
-                    learning <strong class="text-white">rust</strong>, <strong class="text-white">go</strong>, and
+                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
+                    tech stack</h2>
+                <p class="text-base leading-7 text-zinc-400 mb-6">i'm best at
+                    <strong class="text-white">javascript/typescript</strong>,
+                    <strong class="text-white">python</strong>, and <strong
+                        class="text-white">react</strong> but i'm
+                    learning <strong class="text-white">rust</strong>, <strong
+                        class="text-white">go</strong>, and
                     <strong class="text-white">three.js</strong>.
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span class="font-medium text-white">JavaScript/TypeScript</span>
+                    <div
+                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
+                        <span
+                            class="font-medium text-white">JavaScript/TypeScript</span>
                         <span class="text-sm text-zinc-400">3 years</span>
                     </div>
-                    <div class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span class="font-medium text-white">React/Next.js</span>
+                    <div
+                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
+                        <span
+                            class="font-medium text-white">React/Next.js</span>
                         <span class="text-sm text-zinc-400">2 years</span>
                     </div>
-                    <div class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
+                    <div
+                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
                         <span class="font-medium text-white">Python</span>
                         <span class="text-sm text-zinc-400">3 years</span>
                     </div>
-                    <div class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
+                    <div
+                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
                         <span class="font-medium text-white">Node.js</span>
                         <span class="text-sm text-zinc-400">2 years</span>
                     </div>
-                    <div class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
+                    <div
+                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
                         <span class="font-medium text-white">Three.js</span>
                         <span class="text-sm text-zinc-400">1 year</span>
                     </div>
-                    <div class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
+                    <div
+                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
                         <span class="font-medium text-white">Rust</span>
                         <span class="text-sm text-zinc-400">&lt;1 year</span>
                     </div>
@@ -111,29 +140,38 @@
             </section>
 
             <section id="projects" class="py-12">
-                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">projects</h2>
+                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
+                    projects</h2>
 
                 <div class="flex flex-col gap-8">
-                    <div class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
-                            <h3 class="text-lg font-medium text-white">Interactive Portfolio</h3>
+                    <div
+                        class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
+                        <div
+                            class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
+                            <h3 class="text-lg font-medium text-white">
+                                Interactive Portfolio</h3>
                             <div class="flex gap-4">
                                 <a href="https://github.com/b-rine/b-rine.github.io"
                                     target="_blank"
                                     class="text-zinc-400 underline decoration-zinc-600 hover:text-white hover:decoration-white text-sm transition-colors duration-200">github</a>
                                 <a href="https://b-rine.github.io"
-                                    target="_blank" class="text-zinc-400 underline decoration-zinc-600 hover:text-white hover:decoration-white text-sm transition-colors duration-200">live
+                                    target="_blank"
+                                    class="text-zinc-400 underline decoration-zinc-600 hover:text-white hover:decoration-white text-sm transition-colors duration-200">live
                                     site</a>
                             </div>
                         </div>
-                        <p class="text-sm leading-relaxed text-zinc-400">minimal portfolio website
+                        <p class="text-sm leading-relaxed text-zinc-400">minimal
+                            portfolio website
                             with interactive 3d elements. built with vanilla js,
                             css3, and three.js.</p>
                     </div>
 
-                    <div class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
-                            <h3 class="text-lg font-medium text-white">Task Manager App</h3>
+                    <div
+                        class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
+                        <div
+                            class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
+                            <h3 class="text-lg font-medium text-white">Task
+                                Manager App</h3>
                             <div class="flex gap-4">
                                 <a href="https://github.com/b-rine/task-manager"
                                     target="_blank"
@@ -143,36 +181,45 @@
                                     class="text-zinc-400 underline decoration-zinc-600 hover:text-white hover:decoration-white text-sm transition-colors duration-200">demo</a>
                             </div>
                         </div>
-                        <p class="text-sm leading-relaxed text-zinc-400">full-stack task
+                        <p class="text-sm leading-relaxed text-zinc-400">
+                            full-stack task
                             management application with real-time updates. react
                             frontend with node.js backend and mongodb.</p>
                     </div>
 
-                    <div class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
-                            <h3 class="text-lg font-medium text-white">Weather Visualization</h3>
+                    <div
+                        class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
+                        <div
+                            class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
+                            <h3 class="text-lg font-medium text-white">Weather
+                                Visualization</h3>
                             <div class="flex gap-4">
                                 <a href="https://github.com/b-rine/weather-viz"
                                     target="_blank"
                                     class="text-zinc-400 underline decoration-zinc-600 hover:text-white hover:decoration-white text-sm transition-colors duration-200">github</a>
                             </div>
                         </div>
-                        <p class="text-sm leading-relaxed text-zinc-400">interactive weather data
+                        <p class="text-sm leading-relaxed text-zinc-400">
+                            interactive weather data
                             visualization using d3.js and openweather api.
                             displays temperature trends and precipitation
                             patterns.</p>
                     </div>
 
-                    <div class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
-                            <h3 class="text-lg font-medium text-white">Chrome Extension</h3>
+                    <div
+                        class="py-6 border-b border-zinc-800 last:border-b-0 transition-opacity hover:opacity-80">
+                        <div
+                            class="flex flex-col md:flex-row md:justify-between md:items-center mb-2 gap-4">
+                            <h3 class="text-lg font-medium text-white">Chrome
+                                Extension</h3>
                             <div class="flex gap-4">
                                 <a href="https://github.com/b-rine/productivity-ext"
                                     target="_blank"
                                     class="text-zinc-400 underline decoration-zinc-600 hover:text-white hover:decoration-white text-sm transition-colors duration-200">github</a>
                             </div>
                         </div>
-                        <p class="text-sm leading-relaxed text-zinc-400">productivity chrome
+                        <p class="text-sm leading-relaxed text-zinc-400">
+                            productivity chrome
                             extension that blocks distracting websites and
                             tracks time spent on different domains.</p>
                     </div>
