@@ -21,9 +21,19 @@
                         'company': '#a855f7',
                         'company-hover': '#9333ea',
                         'school': '#e0800D',
+                        'school-hover': '#ff8c1a',
                         'tech-distributed': '#06b6d4',
                         'tech-parallel': '#76b900',
-                        'tech-embedded': '#e0535B'
+                        'tech-embedded': '#e0535B',
+                        'lang-java': '#ffa726',
+                        'lang-python': '#4fc3f7',
+                        'lang-cpp': '#42a5f5',
+                        'lang-cuda': '#8bc34a',
+                        'lang-rust': '#ff7043',
+                        'lang-angular': '#f06292',
+                        'tool-git': '#ff8a65',
+                        'tool-docker': '#29b6f6',
+                        'tool-kafka': '#EBECF0'
                     }
                 }
             }
@@ -63,8 +73,10 @@
                         class="text-company hover:text-company-hover no-underline hover:underline transition-all duration-200">modern
                         intelligence</a>.</p>
                 <p class="text-base leading-7 text-zinc-400 mb-4">graduated with
-                    a bs in cs & a minor in applied stats from <span
-                        class="text-school font-medium">ut austin</span>.</p>
+                    a bs in cs & a minor in applied stats from <a
+                        href="https://www.cs.utexas.edu/" target="_blank"
+                        class="text-school hover:text-school-hover no-underline hover:underline transition-all duration-200">ut
+                        austin</a>.</p>
                 <p class="text-base leading-7 text-zinc-400">interested in
                     learning more about <span
                         class="text-tech-distributed font-medium">distributed
@@ -94,49 +106,27 @@
             <section id="tech-stack" class="py-12 border-b border-zinc-800">
                 <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
                     tech stack</h2>
-                <p class="text-base leading-7 text-zinc-400 mb-6">i'm best at
-                    <strong class="text-white">javascript/typescript</strong>,
-                    <strong class="text-white">python</strong>, and <strong
-                        class="text-white">react</strong> but i'm
-                    learning <strong class="text-white">rust</strong>, <strong
-                        class="text-white">go</strong>, and
-                    <strong class="text-white">three.js</strong>.
+                <p class="text-base leading-7 text-zinc-400 mb-6">my best
+                    languages are
+                    <strong class="text-lang-java font-medium">java</strong>,
+                    <strong
+                        class="text-lang-python font-medium">python</strong>,
+                    and <strong class="text-lang-cpp font-medium">c/c++</strong>
+                    but i'm
+                    hoping to improve with <strong
+                        class="text-lang-cuda font-medium">cuda</strong>,
+                    <strong class="text-lang-rust font-medium">rust</strong>,
+                    and
+                    <strong
+                        class="text-lang-angular font-medium">angular</strong>.
                 </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div
-                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span
-                            class="font-medium text-white">JavaScript/TypeScript</span>
-                        <span class="text-sm text-zinc-400">3 years</span>
-                    </div>
-                    <div
-                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span
-                            class="font-medium text-white">React/Next.js</span>
-                        <span class="text-sm text-zinc-400">2 years</span>
-                    </div>
-                    <div
-                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span class="font-medium text-white">Python</span>
-                        <span class="text-sm text-zinc-400">3 years</span>
-                    </div>
-                    <div
-                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span class="font-medium text-white">Node.js</span>
-                        <span class="text-sm text-zinc-400">2 years</span>
-                    </div>
-                    <div
-                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span class="font-medium text-white">Three.js</span>
-                        <span class="text-sm text-zinc-400">1 year</span>
-                    </div>
-                    <div
-                        class="flex justify-between items-center py-3 border-b border-zinc-800 last:border-b-0">
-                        <span class="font-medium text-white">Rust</span>
-                        <span class="text-sm text-zinc-400">&lt;1 year</span>
-                    </div>
-                </div>
+                <p class="text-base leading-7 text-zinc-400">some tools
+                    i've been using
+                    and learning recently are <strong
+                        class="text-tool-git font-medium">git</strong>, <strong
+                        class="text-tool-docker font-medium">docker</strong> and
+                    <strong class="text-tool-kafka font-medium">kafka</strong>.
+                </p>
             </section>
 
             <section id="projects" class="py-12">
