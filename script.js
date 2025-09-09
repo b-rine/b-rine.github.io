@@ -14,9 +14,16 @@ function initThreeJS() {
     camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
     camera.position.z = 5;
     
-    // Create renderer
-    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    // Create renderer with mobile optimizations
+    renderer = new THREE.WebGLRenderer({ 
+        alpha: true, 
+        antialias: true,
+        powerPreference: "high-performance",
+        stencil: false,
+        depth: false
+    });
     renderer.setSize(container.offsetWidth, container.offsetHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
     renderer.setClearColor(0x000000, 0); // Transparent background
     container.appendChild(renderer.domElement);
     
@@ -43,13 +50,26 @@ function initThreeJS() {
 
 // Handle mouse movement
 function onMouseMove(event) {
-    // Get mouse position relative to the container
+    updateCubeTarget(event.clientX, event.clientY);
+}
+
+// Handle touch movement (only for desktop/tablet)
+function onTouchMove(event) {
+    event.preventDefault(); // Prevent scrolling
+    if (event.touches.length > 0) {
+        updateCubeTarget(event.touches[0].clientX, event.touches[0].clientY);
+    }
+}
+
+// Update cube target position (shared by mouse and touch)
+function updateCubeTarget(clientX, clientY) {
+    // Get mouse/touch position relative to the container
     const container = document.getElementById('threejs-container');
     const rect = container.getBoundingClientRect();
     
-    // Normalize mouse coordinates to -1 to 1 range
-    mouseX = ((event.clientX - rect.left) / container.offsetWidth) * 2 - 1;
-    mouseY = -((event.clientY - rect.top) / container.offsetHeight) * 2 + 1;
+    // Normalize coordinates to -1 to 1 range
+    mouseX = ((clientX - rect.left) / container.offsetWidth) * 2 - 1;
+    mouseY = -((clientY - rect.top) / container.offsetHeight) * 2 + 1;
     
     // Set target positions for smooth movement
     targetX = mouseX * 0.5;
@@ -84,6 +104,7 @@ function onWindowResize() {
     camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.offsetWidth, container.offsetHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 }
 
 // Smooth scrolling for navigation (if you add navigation later)
@@ -100,6 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add event listeners
     document.addEventListener('mousemove', onMouseMove);
+    
+    // Only add touch events on larger screens (desktop/tablet)
+    if (window.innerWidth >= 768) {
+        document.addEventListener('touchmove', onTouchMove, { passive: false });
+    }
+    
     window.addEventListener('resize', onWindowResize);
     
     // Add some interactive effects to sections
