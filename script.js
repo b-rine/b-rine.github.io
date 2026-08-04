@@ -129,40 +129,40 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('resize', onWindowResize);
     
-    // Add some interactive effects to sections
-    const sections = document.querySelectorAll('.section');
-    
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
+    initSectionFadeIn();
+});
+
+// Fade sections in as they scroll into view. The hidden state is added here
+// rather than in the stylesheet so the page stays readable if this never runs.
+function initSectionFadeIn() {
+    const sections = document.querySelectorAll('main > section');
+    if (!sections.length) return;
+
+    sections.forEach(section => section.classList.add('pre-fade'));
+
+    // Let the browser paint the hidden state before transitions are enabled,
+    // otherwise the first sections animate from nothing on load.
+    requestAnimationFrame(() => {
+        sections.forEach(section => section.classList.add('fade-ready'));
+    });
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-    
-    // Apply initial styles and observe sections
-    sections.forEach(section => {
-        observer.observe(section);
+    }, {
+        threshold: 0,
+        // The huge top margin extends the root far above the viewport so a
+        // section jumped past (End key, fast scroll, deep link) still counts as
+        // intersecting. Without it, such a section never fires and stays hidden.
+        rootMargin: '9999px 0px -50px 0px'
     });
-    
-    // Add subtle hover effects to project items
-    const projectItems = document.querySelectorAll('.project-item');
-    projectItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateX(5px)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateX(0)';
-        });
-    });
-});
+
+    sections.forEach(section => observer.observe(section));
+}
 
 // Add some console art for fun (optional)
 console.log(`

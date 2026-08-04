@@ -7,6 +7,21 @@
     <title>brian nguyen</title>
     <meta name="description"
         content="Software developer and creative technologist">
+
+    <!-- Social link previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nguyenbrian.dev/">
+    <meta property="og:title" content="brian nguyen — software developer">
+    <meta property="og:description"
+        content="Software engineer interested in distributed systems, parallel computing, and embedded systems.">
+    <meta property="og:image" content="https://nguyenbrian.dev/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="brian nguyen — software developer">
+    <meta name="twitter:description"
+        content="Software engineer interested in distributed systems, parallel computing, and embedded systems.">
+    <meta name="twitter:image" content="https://nguyenbrian.dev/og-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -61,10 +76,46 @@
                 margin-right: auto;
             }
         }
+
+        /* Scroll-in animation. The hidden state is applied by script.js, not here,
+           so the page stays readable if JS fails to load. */
+        main > section.pre-fade {
+            opacity: 0;
+            transform: translateY(1.5rem);
+        }
+
+        main > section.fade-ready {
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        main > section.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            main > section.pre-fade {
+                opacity: 1;
+                transform: none;
+            }
+
+            main > section.fade-ready {
+                transition: none;
+            }
+        }
     </style>
 </head>
 
 <body class="font-inter leading-relaxed text-zinc-300 bg-neutral-950">
+    <!-- Shared icon definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+        <symbol id="icon-github" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+                d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                clip-rule="evenodd"></path>
+        </symbol>
+    </svg>
+
     <div class="max-w-4xl mx-auto px-8">
         <header
             class="relative min-h-screen flex items-center justify-center md:justify-between border-b border-zinc-800 py-8">
@@ -159,123 +210,130 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- E-Commerce Stream -->
-                    <div class="group cursor-pointer"
-                        onclick="window.open('https://github.com/b-rine/ecommerce-stream', '_blank')">
-                        <div
-                            class="bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 h-full">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3
-                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
-                                    E-Commerce Stream</h3>
-                                <svg class="w-5 h-5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-                                    fill="currentColor" viewBox="0 0 20 20"
-                                    onclick="event.stopPropagation(); window.open('https://github.com/b-rine/ecommerce-stream', '_blank')">
-                                    <path fill-rule="evenodd"
-                                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
+                    <div class="group relative">
+                        <a href="https://github.com/b-rine/ecommerce-stream"
+                            target="_blank" rel="noopener noreferrer"
+                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <h3
+                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                E-Commerce Stream</h3>
                             <p class="text-sm leading-relaxed text-zinc-400">
                                 A simple e-commerce stream dashboard with live updates and
                                 analytics. Built with Kafka for event generation/consumption
                                 and WebSocket for communication.
                             </p>
-                        </div>
+                        </a>
+                        <a href="https://github.com/b-rine/ecommerce-stream"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="E-Commerce Stream on GitHub"
+                            class="absolute top-6 right-6 z-10 text-zinc-400 hover:text-white transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <svg class="w-5 h-5" fill="currentColor"
+                                aria-hidden="true">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
                     </div>
 
                     <!-- Giulia Fractal Visualizer -->
-                    <div class="group cursor-pointer"
-                        onclick="window.open('https://nguyenbrian.dev/giulia/', '_blank')">
-                        <div
-                            class="bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 h-full">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3
-                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
-                                    Julia Fractal Visualizer</h3>
-                                <svg class="w-5 h-5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-                                    fill="currentColor" viewBox="0 0 20 20"
-                                    onclick="event.stopPropagation(); window.open('https://github.com/b-rine/giulia', '_blank')">
-                                    <path fill-rule="evenodd"
-                                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
+                    <div class="group relative">
+                        <a href="https://nguyenbrian.dev/giulia/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <h3
+                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                Julia Fractal Visualizer</h3>
                             <p class="text-sm leading-relaxed text-zinc-400">
                                 Interactive Julia set fractal visualization tool
                                 using WebGL. Features real-time parameter controls,
                                 mouse interaction, and preset configurations.
                             </p>
-                        </div>
+                        </a>
+                        <a href="https://github.com/b-rine/giulia" target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Julia Fractal Visualizer on GitHub"
+                            class="absolute top-6 right-6 z-10 text-zinc-400 hover:text-white transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <svg class="w-5 h-5" fill="currentColor"
+                                aria-hidden="true">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
                     </div>
 
                     <!-- Barnes-Hut Simulation -->
-                    <div class="group cursor-pointer"
-                        onclick="window.open('https://nguyenbrian.dev/barnes-hut/', '_blank')">
-                        <div
-                            class="bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 h-full">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3
-                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
-                                    Barnes-Hut Simulation</h3>
-                            </div>
+                    <div class="group relative">
+                        <a href="https://nguyenbrian.dev/barnes-hut/"
+                            target="_blank" rel="noopener noreferrer"
+                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <h3
+                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                Barnes-Hut Simulation</h3>
                             <p class="text-sm leading-relaxed text-zinc-400">
                                 Interactive n-body simulation using the
                                 Barnes-Hut algorithm. Features adjustable
                                 simulation parameters and real-time visuals of
                                 particle interactions.
                             </p>
-                        </div>
+                        </a>
+                        <a href="https://github.com/b-rine/barnes-hut"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Barnes-Hut Simulation on GitHub"
+                            class="absolute top-6 right-6 z-10 text-zinc-400 hover:text-white transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <svg class="w-5 h-5" fill="currentColor"
+                                aria-hidden="true">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
                     </div>
 
                     <!-- Water Tracker -->
-                    <div class="group cursor-pointer"
-                        onclick="window.open('https://nguyenbrian.dev/water-tracker/', '_blank')">
-                        <div
-                            class="bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 h-full">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3
-                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
-                                    Water Tracker</h3>
-                                <svg class="w-5 h-5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-                                    fill="currentColor" viewBox="0 0 20 20"
-                                    onclick="event.stopPropagation(); window.open('https://github.com/b-rine/water-tracker', '_blank')">
-                                    <path fill-rule="evenodd"
-                                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
+                    <div class="group relative">
+                        <a href="https://nguyenbrian.dev/water-tracker/"
+                            target="_blank" rel="noopener noreferrer"
+                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <h3
+                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                Water Tracker</h3>
                             <p class="text-sm leading-relaxed text-zinc-400">
                                 Full-stack web application that logs water intake using Spring Boot
                                 backend and Angular frontend. Features progress visualization,
                                 goal management, and data tracking with H2 database.
                             </p>
-                        </div>
+                        </a>
+                        <a href="https://github.com/b-rine/water-tracker"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Water Tracker on GitHub"
+                            class="absolute top-6 right-6 z-10 text-zinc-400 hover:text-white transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <svg class="w-5 h-5" fill="currentColor"
+                                aria-hidden="true">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
                     </div>
 
                     <!-- Visionnaire -->
-                    <div class="group cursor-pointer"
-                        onclick="window.open('https://visionnaire.nguyenbrian.dev/', '_blank')">
-                        <div
-                            class="bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 h-full">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3
-                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
-                                    Visionnaire</h3>
-                                <svg class="w-5 h-5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-                                    fill="currentColor" viewBox="0 0 20 20"
-                                    onclick="event.stopPropagation(); window.open('https://github.com/b-rine/visionnaire', '_blank')">
-                                    <path fill-rule="evenodd"
-                                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
+                    <div class="group relative">
+                        <a href="https://visionnaire.nguyenbrian.dev/"
+                            target="_blank" rel="noopener noreferrer"
+                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <h3
+                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                Visionnaire</h3>
                             <p class="text-sm leading-relaxed text-zinc-400">
                                 An ML-powered photo app for image captioning and semantic
                                 search. A single CoCa vision-language model handles both
                                 captioning and embeddings, served via Triton, with Qdrant
                                 for vector search and a FastAPI + React stack.
                             </p>
-                        </div>
+                        </a>
+                        <a href="https://github.com/b-rine/visionnaire"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Visionnaire on GitHub"
+                            class="absolute top-6 right-6 z-10 text-zinc-400 hover:text-white transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <svg class="w-5 h-5" fill="currentColor"
+                                aria-hidden="true">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </section>
