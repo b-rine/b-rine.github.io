@@ -128,9 +128,76 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('resize', onWindowResize);
-    
+
     initSectionFadeIn();
+    initNavHighlight();
+    initHashLinkScrolling();
+
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+// Intercept in-page hash links and route them through the existing
+// smoothScroll() helper (nav, hero scroll cue, footer back-to-top, etc.)
+function initHashLinkScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        const target = link.getAttribute('href');
+        if (target.length > 1 && document.querySelector(target)) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScroll(target);
+            });
+        }
+    });
+}
+
+// Highlight the nav link for whichever section is currently at the top of
+// the viewport as the user scrolls.
+function initNavHighlight() {
+    const navLinks = document.querySelectorAll('[data-nav-link]');
+    if (!navLinks.length) return;
+
+    const sections = [...navLinks]
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+    if (!sections.length) return;
+
+    const setActive = (hash) => {
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === hash;
+            link.classList.toggle('text-white', isActive);
+            link.classList.toggle('text-zinc-400', !isActive);
+        });
+    };
+
+    // The callback only receives entries whose intersection state just changed,
+    // not every observed section — so state has to be accumulated across calls
+    // rather than recomputed from a single batch, or the active link gets stuck
+    // on whichever section last happened to change.
+    const latestByTarget = new Map();
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => latestByTarget.set(entry.target, entry));
+
+        const visible = [...latestByTarget.values()].filter(entry => entry.isIntersecting);
+        if (visible.length === 0) {
+            // Nothing in the highlight band (e.g. still within the hero) —
+            // clear the active link rather than leaving a stale one lit.
+            setActive(null);
+            return;
+        }
+
+        const topmost = visible.reduce((a, b) =>
+            a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+        );
+        setActive('#' + topmost.target.id);
+    }, {
+        threshold: 0,
+        rootMargin: '-64px 0px -60% 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+}
 
 // Fade sections in as they scroll into view. The hidden state is added here
 // rather than in the stylesheet so the page stays readable if this never runs.
