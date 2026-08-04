@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  schedule:
+    - cron: '37 14 * * *'  # daily refresh of data/github-activity.json
 
 permissions:
   contents: read
@@ -25,7 +27,35 @@ jobs:
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+
+      - name: Fetch GitHub activity for featured repos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p data
+          repos=(ecommerce-stream giulia barnes-hut water-tracker visionnaire)
+          entries=()
+          for repo in "${repos[@]}"; do
+            # GITHUB_TOKEN is scoped to this repo only, so private repos in the
+            # list (e.g. barnes-hut) 404 here and are silently skipped rather
+            # than failing the build.
+            pushed_at=$(gh api "repos/b-rine/$repo" --jq '.pushed_at' 2>/dev/null) || continue
+            [ -n "$pushed_at" ] || continue
+            entries+=("$pushed_at|$repo")
+          done
+          # Note: with pipefail (bash's default in Actions run steps), a plain
+          # `grep -v` here would exit 1 (and abort the whole step) whenever
+          # every repo lookup fails, since grep's "no lines matched" isn't an
+          # error but pipefail treats it like one. Guard explicitly instead.
+          if [ "${#entries[@]}" -eq 0 ]; then
+            echo '[]' > data/github-activity.json
+          else
+            printf '%s\n' "${entries[@]}" | sort -r | head -n 3 | cut -d'|' -f2 | \
+              jq -R . | jq -s . > data/github-activity.json
+          fi
+          echo "Wrote data/github-activity.json:"
+          cat data/github-activity.json
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

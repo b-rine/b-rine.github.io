@@ -132,10 +132,67 @@ document.addEventListener('DOMContentLoaded', function() {
     initSectionFadeIn();
     initNavHighlight();
     initHashLinkScrolling();
+    initCardSpotlight();
+    initRecentActivity();
 
     const yearEl = document.getElementById('current-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+// Show which featured repos were pushed to most recently, from a static
+// JSON file generated at deploy time (see .github/workflows/deploy.yml) —
+// never a live client-side GitHub API call, which would hit a 60 req/hr
+// per-visitor-IP rate limit. Scoped to only the repos already featured as
+// project cards; silently does nothing if the file is missing or empty
+// rather than showing a broken or empty line.
+async function initRecentActivity() {
+    const el = document.getElementById('recent-activity');
+    if (!el) return;
+
+    try {
+        const res = await fetch('./data/github-activity.json', { cache: 'no-store' });
+        if (!res.ok) return;
+
+        const repoNames = await res.json();
+        if (!Array.isArray(repoNames) || repoNames.length === 0) return;
+
+        el.textContent = '';
+        el.append('recently active: ');
+        repoNames.forEach((name, i) => {
+            if (i > 0) el.append(' · ');
+            const link = document.createElement('a');
+            link.href = 'https://github.com/b-rine/' + name;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = name;
+            link.className = 'text-zinc-400 hover:text-white no-underline hover:underline transition-colors';
+            el.appendChild(link);
+        });
+        el.classList.remove('hidden');
+    } catch (e) {
+        // Decorative feature — fail silently rather than surface a broken UI.
+    }
+}
+
+// Cursor-following spotlight on project cards. Skipped entirely on touch
+// devices (no meaningful cursor) and when the user prefers reduced motion.
+function initCardSpotlight() {
+    const spotlights = document.querySelectorAll('.card-spotlight');
+    if (!spotlights.length) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    spotlights.forEach(spotlight => {
+        const card = spotlight.closest('a');
+        if (!card) return;
+
+        card.addEventListener('mousemove', function (e) {
+            const rect = card.getBoundingClientRect();
+            spotlight.style.setProperty('--spot-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+            spotlight.style.setProperty('--spot-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+        });
+    });
+}
 
 // Intercept in-page hash links and route them through the existing
 // smoothScroll() helper (nav, hero scroll cue, footer back-to-top, etc.)

@@ -117,6 +117,25 @@
                 animation: none !important;
             }
         }
+
+        /* Cursor-following spotlight on project cards. JS sets --spot-x/--spot-y
+           per mousemove; disabled entirely on touch and reduced-motion. */
+        .card-spotlight {
+            background: radial-gradient(400px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+                    rgba(255, 255, 255, 0.06), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .group:hover .card-spotlight {
+            opacity: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce), (pointer: coarse) {
+            .card-spotlight {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -264,30 +283,39 @@
             </section>
 
             <section id="projects" class="py-8 scroll-mt-16">
-                <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
-                    projects</h2>
+                <div
+                    class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 mb-6">
+                    <h2 class="text-2xl font-medium text-white tracking-tight">
+                        projects</h2>
+                    <p id="recent-activity" class="text-xs text-zinc-500 hidden">
+                    </p>
+                </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- E-Commerce Stream -->
                     <div class="group relative">
                         <a href="https://github.com/b-rine/ecommerce-stream"
                             target="_blank" rel="noopener noreferrer"
-                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            <h3
-                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
-                                E-Commerce Stream</h3>
-                            <p class="text-sm leading-relaxed text-zinc-400">
-                                A simple e-commerce stream dashboard with live updates and
-                                analytics. Built with Kafka for event generation/consumption
-                                and WebSocket for communication.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tool-kafka">Kafka</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-fastapi">FastAPI</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-websocket">WebSocket</span>
+                            class="relative overflow-hidden block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <div class="card-spotlight absolute inset-0 rounded-lg pointer-events-none"
+                                aria-hidden="true"></div>
+                            <div class="relative">
+                                <h3
+                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                    E-Commerce Stream</h3>
+                                <p class="text-sm leading-relaxed text-zinc-400">
+                                    A simple e-commerce stream dashboard with live updates and
+                                    analytics. Built with Kafka for event generation/consumption
+                                    and WebSocket for communication.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tool-kafka">Kafka</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-fastapi">FastAPI</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-websocket">WebSocket</span>
+                                </div>
                             </div>
                         </a>
                         <a href="https://github.com/b-rine/ecommerce-stream"
@@ -305,20 +333,24 @@
                     <div class="group relative">
                         <a href="https://nguyenbrian.dev/giulia/" target="_blank"
                             rel="noopener noreferrer"
-                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            <h3
-                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
-                                Julia Fractal Visualizer</h3>
-                            <p class="text-sm leading-relaxed text-zinc-400">
-                                Interactive Julia set fractal visualization tool
-                                using WebGL. Features real-time parameter controls,
-                                mouse interaction, and preset configurations.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-javascript">JavaScript</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-webgl">WebGL</span>
+                            class="relative overflow-hidden block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <div class="card-spotlight absolute inset-0 rounded-lg pointer-events-none"
+                                aria-hidden="true"></div>
+                            <div class="relative">
+                                <h3
+                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                    Julia Fractal Visualizer</h3>
+                                <p class="text-sm leading-relaxed text-zinc-400">
+                                    Interactive Julia set fractal visualization tool
+                                    using WebGL. Features real-time parameter controls,
+                                    mouse interaction, and preset configurations.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-javascript">JavaScript</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-webgl">WebGL</span>
+                                </div>
                             </div>
                         </a>
                         <a href="https://github.com/b-rine/giulia" target="_blank"
@@ -336,21 +368,25 @@
                     <div class="group relative">
                         <a href="https://nguyenbrian.dev/barnes-hut/"
                             target="_blank" rel="noopener noreferrer"
-                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            <h3
-                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4">
-                                Barnes-Hut Simulation</h3>
-                            <p class="text-sm leading-relaxed text-zinc-400">
-                                Interactive n-body simulation using the
-                                Barnes-Hut algorithm. Features adjustable
-                                simulation parameters and real-time visuals of
-                                particle interactions.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-lang-cpp">C++</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-mpi">MPI</span>
+                            class="relative overflow-hidden block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <div class="card-spotlight absolute inset-0 rounded-lg pointer-events-none"
+                                aria-hidden="true"></div>
+                            <div class="relative">
+                                <h3
+                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4">
+                                    Barnes-Hut Simulation</h3>
+                                <p class="text-sm leading-relaxed text-zinc-400">
+                                    Interactive n-body simulation using the
+                                    Barnes-Hut algorithm. Features adjustable
+                                    simulation parameters and real-time visuals of
+                                    particle interactions.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-lang-cpp">C++</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-mpi">MPI</span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -359,25 +395,29 @@
                     <div class="group relative">
                         <a href="https://nguyenbrian.dev/water-tracker/"
                             target="_blank" rel="noopener noreferrer"
-                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            <h3
-                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
-                                Water Tracker</h3>
-                            <p class="text-sm leading-relaxed text-zinc-400">
-                                Full-stack web application that logs water intake using Spring Boot
-                                backend and Angular frontend. Features progress visualization,
-                                goal management, and data tracking with H2 database.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-lang-java">Java</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-spring">Spring
-                                    Boot</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-lang-angular">Angular</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-h2">H2</span>
+                            class="relative overflow-hidden block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <div class="card-spotlight absolute inset-0 rounded-lg pointer-events-none"
+                                aria-hidden="true"></div>
+                            <div class="relative">
+                                <h3
+                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                    Water Tracker</h3>
+                                <p class="text-sm leading-relaxed text-zinc-400">
+                                    Full-stack web application that logs water intake using Spring Boot
+                                    backend and Angular frontend. Features progress visualization,
+                                    goal management, and data tracking with H2 database.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-lang-java">Java</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-spring">Spring
+                                        Boot</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-lang-angular">Angular</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-h2">H2</span>
+                                </div>
                             </div>
                         </a>
                         <a href="https://github.com/b-rine/water-tracker"
@@ -395,25 +435,29 @@
                     <div class="group relative">
                         <a href="https://visionnaire.nguyenbrian.dev/"
                             target="_blank" rel="noopener noreferrer"
-                            class="block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
-                            <h3
-                                class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
-                                Visionnaire</h3>
-                            <p class="text-sm leading-relaxed text-zinc-400">
-                                An ML-powered photo app for image captioning and semantic
-                                search. A single CoCa vision-language model handles both
-                                captioning and embeddings, served via Triton, with Qdrant
-                                for vector search and a FastAPI + React stack.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-fastapi">FastAPI</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-react">React</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-triton">Triton</span>
-                                <span
-                                    class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-qdrant">Qdrant</span>
+                            class="relative overflow-hidden block h-full bg-zinc-900 rounded-lg p-6 border border-zinc-800 hover:border-zinc-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+                            <div class="card-spotlight absolute inset-0 rounded-lg pointer-events-none"
+                                aria-hidden="true"></div>
+                            <div class="relative">
+                                <h3
+                                    class="text-lg font-medium text-white group-hover:text-zinc-300 transition-colors mb-4 pr-8">
+                                    Visionnaire</h3>
+                                <p class="text-sm leading-relaxed text-zinc-400">
+                                    An ML-powered photo app for image captioning and semantic
+                                    search. A single CoCa vision-language model handles both
+                                    captioning and embeddings, served via Triton, with Qdrant
+                                    for vector search and a FastAPI + React stack.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-fastapi">FastAPI</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-react">React</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-triton">Triton</span>
+                                    <span
+                                        class="text-xs font-medium px-2 py-0.5 rounded-full border border-zinc-800 text-tag-qdrant">Qdrant</span>
+                                </div>
                             </div>
                         </a>
                         <a href="https://github.com/b-rine/visionnaire"
