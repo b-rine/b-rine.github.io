@@ -154,16 +154,21 @@
         </symbol>
         <symbol id="icon-mail" viewBox="0 0 20 20">
             <path
-                d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z">
+                d="M3 4C1.89543 4 1 4.89543 1 6V7.16147L9.44098 11.382C9.79289 11.5579 10.2071 11.5579 10.559 11.382L19 7.16147V6C19 4.89543 18.1046 4 17 4H3Z">
             </path>
             <path
-                d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z">
+                d="M19 8.83853L11.2298 12.7236C10.4556 13.1107 9.54436 13.1107 8.77016 12.7236L1 8.83853V14C1 15.1046 1.89543 16 3 16H17C18.1046 16 19 15.1046 19 14V8.83853Z">
             </path>
         </symbol>
         <symbol id="icon-chevron-up" viewBox="0 0 20 20">
-            <path fill-rule="evenodd"
-                d="M9.47 6.47a.75.75 0 011.06 0l4.5 4.5a.75.75 0 01-1.06 1.06L10 7.06l-3.97 3.97a.75.75 0 01-1.06-1.06l4.5-4.5z"
-                clip-rule="evenodd"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.46967 6.46967C9.76256 6.17678 10.2374 6.17678 10.5303 6.46967L14.7803 10.7197C15.0732 11.0126 15.0732 11.4874 14.7803 11.7803C14.4874 12.0732 14.0126 12.0732 13.7197 11.7803L10 8.06066L6.28033 11.7803C5.98744 12.0732 5.51256 12.0732 5.21967 11.7803C4.92678 11.4874 4.92678 11.0126 5.21967 10.7197L9.46967 6.46967Z">
+            </path>
+        </symbol>
+        <symbol id="icon-chevron-down" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.21967 8.21967C5.51256 7.92678 5.98744 7.92678 6.28033 8.21967L10 11.9393L13.7197 8.21967C14.0126 7.92678 14.4874 7.92678 14.7803 8.21967C15.0732 8.51256 15.0732 8.98744 14.7803 9.28033L10.5303 13.5303C10.3897 13.671 10.1989 13.75 10 13.75C9.80109 13.75 9.61032 13.671 9.46967 13.5303L5.21967 9.28033C4.92678 8.98744 4.92678 8.51256 5.21967 8.21967Z">
+            </path>
         </symbol>
     </svg>
 
@@ -201,11 +206,9 @@
             </div>
             <a href="#about" aria-label="Scroll to about section"
                 class="scroll-cue hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 text-zinc-500 hover:text-white transition-colors">
-                <svg class="w-6 h-6 animate-bounce" fill="none"
-                    stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                <svg class="w-6 h-6 animate-bounce" fill="currentColor"
                     aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M19 9l-7 7-7-7" />
+                    <use href="#icon-chevron-down"></use>
                 </svg>
             </a>
         </header>
