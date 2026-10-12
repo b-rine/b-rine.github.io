@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>brian nguyen</title>
     <meta name="description"
-        content="Software developer and creative technologist">
+        content="Software engineer building real-time perception and edge AI inference for robotics.">
 
     <!-- Social link previews -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nguyenbrian.dev/">
-    <meta property="og:title" content="brian nguyen — software developer">
+    <meta property="og:title" content="brian nguyen — software engineer">
     <meta property="og:description"
-        content="Software engineer interested in distributed systems, parallel computing, and embedded systems.">
+        content="Software engineer building real-time perception and edge AI inference for robotics.">
     <meta property="og:image" content="https://nguyenbrian.dev/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="brian nguyen — software developer">
+    <meta name="twitter:title" content="brian nguyen — software engineer">
     <meta name="twitter:description"
-        content="Software engineer interested in distributed systems, parallel computing, and embedded systems.">
+        content="Software engineer building real-time perception and edge AI inference for robotics.">
     <meta name="twitter:image" content="https://nguyenbrian.dev/og-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script
@@ -37,18 +37,23 @@
                         'company-hover': '#9333ea',
                         'school': '#e0800D',
                         'school-hover': '#ff8c1a',
-                        'tech-distributed': '#06b6d4',
-                        'tech-parallel': '#76b900',
-                        'tech-embedded': '#e0535B',
+                        'tech-perception': '#06b6d4',
+                        'tech-edge': '#e0535B',
+                        'tech-gpu': '#76b900',
+                        'tech-robotics': '#ffa726',
                         'lang-java': '#ffa726',
                         'lang-python': '#4fc3f7',
                         'lang-cpp': '#a020f0',
                         'lang-cuda': '#8bc34a',
-                        'lang-rust': '#ff7043',
+                        'lang-go': '#00add8',
                         'lang-angular': '#f06292',
-                        'tool-git': '#ff8a65',
+                        'tool-tensorrt': '#76b900',
+                        'tool-opencv': '#ff6f61',
+                        'tool-gstreamer': '#e0535B',
+                        'tool-bazel': '#43a047',
                         'tool-docker': '#29b6f6',
                         'tool-kafka': '#ebecf0',
+                        'tool-hardware': '#e0e0e0',
                         'tag-fastapi': '#00b39f',
                         'tag-websocket': '#818cf8',
                         'tag-javascript': '#f0db4f',
@@ -198,7 +203,7 @@
                     class="text-4xl md:text-6xl font-normal mb-6 text-white tracking-tight">
                     brian nguyen</h1>
                 <p class="text-lg md:text-xl text-zinc-400 font-normal">
-                    software developer</p>
+                    software engineer · perception &amp; edge ai</p>
                 <!-- Mobile cube positioning - directly below text -->
                 <div id="threejs-container"
                     class="absolute left-1/2 transform -translate-x-1/2 top-full mt-4 w-56 h-56 z-10 pointer-events-none md:pointer-events-auto md:absolute md:top-1/2 md:right-[-24rem] md:left-auto md:transform md:-translate-y-1/2 md:translate-x-0 md:w-80 md:h-80 md:mt-0 lg:w-96 lg:h-96">
@@ -222,20 +227,19 @@
                         href="https://www.modernintelligence.ai/"
                         target="_blank"
                         class="text-company hover:text-company-hover no-underline hover:underline transition-all duration-200">modern
-                        intelligence</a>.</p>
+                        intelligence</a>, building real-time perception and
+                    inference on edge hardware.</p>
                 <p class="text-base leading-7 text-zinc-400 mb-4">graduated with
-                    a bs in cs & a minor in applied stats from <a
+                    a bsa in cs & a certificate in applied statistical modeling from <a
                         href="https://www.cs.utexas.edu/" target="_blank"
                         class="text-school hover:text-school-hover no-underline hover:underline transition-all duration-200">ut
                         austin</a>.</p>
                 <p class="text-base leading-7 text-zinc-400">interested in
-                    learning more about <span
-                        class="text-tech-distributed font-medium">distributed
-                        systems</span>, <span
-                        class="text-tech-parallel font-medium">parallel
-                        computing</span>,
-                    and <span class="text-tech-embedded font-medium">embedded
-                        systems</span>.</p>
+                    <span class="text-tech-perception font-medium">perception</span>,
+                    <span class="text-tech-edge font-medium">edge
+                        inference</span>, <span
+                        class="text-tech-gpu font-medium">gpu computing</span>,
+                    and <span class="text-tech-robotics font-medium">robotics</span>.</p>
             </section>
 
             <section id="contact" class="py-8 border-b border-zinc-800 scroll-mt-16">
@@ -262,26 +266,25 @@
             <section id="tech-stack" class="py-8 border-b border-zinc-800 scroll-mt-16">
                 <h2 class="text-2xl font-medium mb-6 text-white tracking-tight">
                     tech stack</h2>
-                <p class="text-base leading-7 text-zinc-400 mb-6">my best
-                    languages are
-                    <strong class="text-lang-java font-medium">java</strong>,
-                    <strong
-                        class="text-lang-python font-medium">python</strong>,
-                    and <strong class="text-lang-cpp font-medium">c/c++</strong>
-                    but i'm
-                    hoping to improve with <strong
-                        class="text-lang-cuda font-medium">cuda</strong>,
-                    <strong class="text-lang-rust font-medium">rust</strong>,
-                    and
-                    <strong
-                        class="text-lang-angular font-medium">angular</strong>.
+                <p class="text-base leading-7 text-zinc-400 mb-6">most of my
+                    work is in
+                    <strong class="text-lang-cpp font-medium">c++</strong>,
+                    <strong class="text-lang-python font-medium">python</strong>,
+                    and <strong class="text-lang-cuda font-medium">cuda</strong>,
+                    with some <strong class="text-lang-go font-medium">go</strong>
+                    on the side.
                 </p>
-                <p class="text-base leading-7 text-zinc-400">some tools
-                    i've been using
-                    and learning recently are <strong
-                        class="text-tool-git font-medium">git</strong>, <strong
-                        class="text-tool-docker font-medium">docker</strong> and
-                    <strong class="text-tool-kafka font-medium">kafka</strong>.
+                <p class="text-base leading-7 text-zinc-400">day to day i use
+                    <strong class="text-tool-tensorrt font-medium">tensorrt</strong>,
+                    <strong class="text-tool-opencv font-medium">opencv</strong>,
+                    <strong class="text-tool-gstreamer font-medium">gstreamer</strong>,
+                    <strong class="text-tool-bazel font-medium">bazel</strong>, and
+                    <strong class="text-tool-docker font-medium">docker</strong>,
+                    deploying to <strong class="text-tool-hardware font-medium">jetson
+                        orin</strong>, <strong
+                        class="text-tool-hardware font-medium">hailo-8</strong>, and
+                    <strong class="text-tool-hardware font-medium">raspberry pi
+                        5</strong>.
                 </p>
             </section>
 
